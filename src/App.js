@@ -4,11 +4,12 @@ import './App.css';
 
 class App extends Component {
 
-  constructor(){
+  constructor() {
     super();
 
     this.state = {
-      name: 'Andrei',
+      name: { firstName: 'Andrei', lastName: 'Zhang' },
+      company: 'Amazon',
     }
   }
 
@@ -17,11 +18,19 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p> Hi {this.state.name}</p>
-          <button 
+          <p> Hi {this.state.name.firstName} {this.state.name.lastName}, I work
+            at {this.state.company}.
+          </p>
+          <button
             onClick={() => {
-              this.setState({ name: 'Matthew' });
-          }}>Change Name</button>
+              this.setState({
+                name: { firstName: 'Matthew', lastName: 'Neaogie' },
+                company: 'Google',
+              });
+              console.log(this.state);
+            }
+            }
+          >Change Name</button>
         </header>
       </div>
     );
