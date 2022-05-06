@@ -39,14 +39,14 @@ class App extends Component {
               console.log(event.target.value);
               const str = event.target.value.toLowerCase();
 
-              const fm = this.state.monsters.filter(
+              const filteredMonsters = this.state.monsters.filter(
                 (monster) => {
                   return monster.name.toLowerCase().includes(str);
                 }
               );
 
               this.setState(
-                () => { return { monsters: fm } }
+                () => { return { monsters: filteredMonsters } }
               );
             }
           }
