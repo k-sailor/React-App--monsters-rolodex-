@@ -35,10 +35,9 @@ class App extends Component {
         <input className='search-box' type='search' placeholder='search monsters'
           onChange={
             (event) => {
+              console.log({startingArray: this.state.monsters});
               
-              console.log(event.target.value);
               const str = event.target.value.toLowerCase();
-
               const filteredMonsters = this.state.monsters.filter(
                 (monster) => {
                   return monster.name.toLowerCase().includes(str);
@@ -46,7 +45,8 @@ class App extends Component {
               );
 
               this.setState(
-                () => { return { monsters: filteredMonsters } }
+                () => { return { monsters: filteredMonsters } },
+                () => { console.log({endingArray: this.state.monsters}); }
               );
             }
           }
